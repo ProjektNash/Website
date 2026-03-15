@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #f0f2f0;
+  --surface: #ffffff;
+  --text: #1a1f1a;
+  --text-muted: #5a6259;
+  --accent: #2ec4a0;
+  --accent-dark: #1fa88a;
+  --border: #e0e4e0;
+  --nav-bg: rgba(240, 242, 240, 0.92);
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 8px 32px rgba(0,0,0,0.10);
+  --radius: 12px;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
