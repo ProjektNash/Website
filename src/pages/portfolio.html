@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — ProjektNash</title>
+  <link rel="stylesheet" href="/src/css/style.css" />
+  <style>
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .portfolio-card.span2 { grid-column: span 2; }
+    @media (max-width: 900px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-card.span2 { grid-column: span 2; }
+    }
+    @media (max-width: 640px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-card.span2 { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><div class="nav-logo-mark">PN</div>ProjektNash</a>
+    <ul class="nav-links">
+      <li><a href="/src/pages/solutions.html">Solutions</a></li>
+      <li><a href="/src/pages/process.html">Process Improvement</a></li>
+      <li><a href="/src/pages/portfolio.html">Portfolio</a></li>
+      <li><a href="/src/pages/about.html">About</a></li>
+      <li><a href="/src/pages/contact.html" class="nav-cta">Book a Consultation</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="page">
+  <div class="page-hero">
+    <div class="section-label">Our work</div>
+    <h1>Portfolio</h1>
+    <p>A selection of systems we've delivered — built around how your business actually operates.</p>
+  </div>
+  <section class="section" style="padding-top:0;">
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card span2">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#e0ede8,#c4ddd4);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏭</div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Manufacturing</span>
+          <h3>Manufacturing System</h3>
+          <p>End-to-end production tracking managing work orders, machine status, and output — giving the shop floor and management real-time visibility.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb t2" style="display:flex;align-items:center;justify-content:center;font-size:3rem;">📄</div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Sales</span>
+          <h3>Sales Document System</h3>
+          <p>Automated quote and proposal generation pulling live pricing and product data — cutting turnaround from hours to minutes.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb t3" style="display:flex;align-items:center;justify-content:center;font-size:3rem;">📦</div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Warehouse</span>
+          <h3>Warehouse Management System</h3>
+          <p>Custom WMS handling stock intake, location tracking, pick & pack, and despatch — replacing spreadsheets and paper processes.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card span2">
+        <div class="portfolio-thumb t4" style="display:flex;align-items:center;justify-content:center;font-size:3rem;">🔧</div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Maintenance</span>
+          <h3>Maintenance System</h3>
+          <p>Planned and reactive maintenance management with asset registers, job scheduling, and engineer job cards — reducing downtime and keeping audits clean.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card span2">
+        <div class="portfolio-thumb" style="background:linear-gradient(135deg,#eaeee8,#d4ddd0);display:flex;align-items:center;justify-content:center;font-size:3rem;">📅</div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">Scheduling</span>
+          <h3>Scheduling Board</h3>
+          <p>Visual drag-and-drop scheduling board managing staff, jobs, and resources across multiple sites — replacing whiteboards and shared calendars.</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="margin-top:48px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:32px; text-align:center;">
+      <p style="color:var(--text-muted); font-size:0.9rem; font-weight:300; margin-bottom:16px;">More case studies coming soon. Book a call to discuss your project.</p>
+      <a href="/src/pages/contact.html" class="btn btn-primary">Start a conversation →</a>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-logo">ProjektNash</div><div class="footer-tagline">Intelligent systems & websites.</div></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Services</h4><ul><li><a href="/src/pages/solutions.html">Solutions</a></li><li><a href="/src/pages/process.html">Process Improvement</a></li><li><a href="/src/pages/portfolio.html">Portfolio</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="/src/pages/about.html">About</a></li><li><a href="/src/pages/contact.html">Contact</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Projekt Nash. All rights reserved.</p><a href="mailto:adrian@projektnash.co.uk" class="footer-email">adrian@projektnash.co.uk</a></div>
+  </div>
+</footer>
+<script type="module" src="/src/js/nav.js"></script>
+</body>
+</html>
