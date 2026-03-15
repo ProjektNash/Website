@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — ProjektNash</title>
+  <script type="module" crossorigin src="/assets/contact-1VrLGsnS.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/nav-ChWirQtp.js">
+  <link rel="stylesheet" crossorigin href="/assets/nav-Cr0lqCaX.css">
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><div class="nav-logo-mark">PN</div>ProjektNash</a>
+    <ul class="nav-links">
+      <li><a href="/src/pages/solutions.html">Solutions</a></li>
+      <li><a href="/src/pages/process.html">Process Improvement</a></li>
+      <li><a href="/src/pages/portfolio.html">Portfolio</a></li>
+      <li><a href="/src/pages/about.html">About</a></li>
+      <li><a href="/src/pages/contact.html" class="nav-cta">Book a Consultation</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="page">
+  <div class="page-hero">
+    <div class="section-label">Get in touch</div>
+    <h1>Book a Consultation</h1>
+    <p>Tell us about your project and I'll get back to you within 48 hours to arrange a free discovery call.</p>
+  </div>
+  <section class="section" style="padding-top:0;">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Let's talk about your project</h2>
+        <p>Whether you have a clear brief or just a problem to solve, I'm happy to have an initial conversation with no commitment.</p>
+        <div class="contact-detail"><span>📧</span><a href="mailto:adrian@projektnash.co.uk" style="color:var(--text-muted);text-decoration:none;">adrian@projektnash.co.uk</a></div>
+        <div class="contact-detail"><span>📍</span><span>United Kingdom</span></div>
+        <div class="contact-detail"><span>⏱️</span><span>Response within 48 hours</span></div>
+        <div style="margin-top:40px; padding:24px; background:rgba(46,196,160,0.08); border:1px solid rgba(46,196,160,0.2); border-radius:var(--radius);">
+          <p style="font-size:0.85rem; color:var(--text-muted); font-weight:300; line-height:1.7;">
+            <strong style="color:var(--text); font-weight:600;">Free 30-minute discovery call</strong><br>
+            No sales pitch. I'll ask about your business and current processes — and give you honest advice on what might help.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-group"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="Jane Smith" required /></div>
+              <div class="form-group"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="jane@company.com" required /></div>
+            </div>
+            <div class="form-group"><label for="company">Company (optional)</label><input type="text" id="company" name="company" placeholder="Your company name" /></div>
+            <div class="form-group">
+              <label for="service">What are you interested in?</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option>Website or Web App</option>
+                <option>Warehouse Management System</option>
+                <option>Manufacturing System</option>
+                <option>Maintenance System</option>
+                <option>Scheduling Board</option>
+                <option>Sales Document System</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="message">Tell us about your project</label><textarea id="message" name="message" placeholder="What are you trying to achieve? What's the main challenge?" required></textarea></div>
+            <button type="submit" id="submit-btn" class="btn btn-primary" style="width:100%; justify-content:center;">Send message →</button>
+          </form>
+          <div id="form-success" style="display:none; text-align:center; padding:32px 0;">
+            <div style="font-size:2rem; margin-bottom:12px;">✅</div>
+            <h3 style="font-family:var(--font-head); font-weight:700; margin-bottom:8px;">Message sent!</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem; font-weight:300;">We'll be in touch within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-logo">ProjektNash</div><div class="footer-tagline">Intelligent systems & websites.</div></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Services</h4><ul><li><a href="/src/pages/solutions.html">Solutions</a></li><li><a href="/src/pages/process.html">Process Improvement</a></li><li><a href="/src/pages/portfolio.html">Portfolio</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="/src/pages/about.html">About</a></li><li><a href="/src/pages/contact.html">Contact</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Projekt Nash. All rights reserved.</p><a href="mailto:adrian@projektnash.co.uk" class="footer-email">adrian@projektnash.co.uk</a></div>
+  </div>
+</footer>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</body>
+</html>
