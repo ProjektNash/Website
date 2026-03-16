@@ -15,14 +15,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className={styles.statsBar}>
-        <div className={styles.statsInner}>
-          <div><div className={styles.statNum}>50+</div><div className={styles.statLabel}>Projects delivered</div></div>
-          <div><div className={styles.statNum}>100%</div><div className={styles.statLabel}>Client satisfaction</div></div>
-          <div><div className={styles.statNum}>5+</div><div className={styles.statLabel}>Years experience</div></div>
-          <div><div className={styles.statNum}>48hr</div><div className={styles.statLabel}>Avg. response time</div></div>
-        </div>
-      </div>
 
       <section className={s.section}>
         <div className={s.sectionLabel}>What we do</div>
