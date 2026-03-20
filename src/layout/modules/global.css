@@ -3,10 +3,9 @@
 :root {
   --bg: #f0f2f0;
   --surface: #ffffff;
-  --text: #1a1f1a;
-  --text-muted: #5a6259;
-  --accent: #2ec4a0;
-  --accent-dark: #1fa88a;
+  --text: #0d1f2d;
+  --accent: #0e8797cc;
+  --accent-dark: #0f6e56;
   --border: #e0e4e0;
   --nav-bg: rgba(240, 242, 240, 0.92);
   --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
@@ -15,7 +14,6 @@
   --font-head: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 

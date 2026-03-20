@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from './modules/Navbar.module.css'
+import logo from '../assets/PNLogo.png';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -8,10 +9,9 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.inner}>
-        <NavLink to="/" className={styles.logo}>
-          <div className={styles.logoMark}>PN</div>
-          ProjektNash
-        </NavLink>
+        <NavLink to="/">
+  <img src={logo} alt="ProjektNash" style={{ height: '300px', width: 'auto', mixBlendMode: 'multiply', marginTop: '40px', marginLeft: '-100px' }} />
+</NavLink>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
           <li><NavLink to="/solutions" className={({ isActive }) => isActive ? styles.active : ''} onClick={() => setOpen(false)}>Solutions</NavLink></li>
