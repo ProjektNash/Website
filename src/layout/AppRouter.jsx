@@ -7,6 +7,7 @@ import Process from '../components/Process'
 import Portfolio from '../components/Portfolio'
 import About from '../components/About'
 import Contact from '../components/Contact'
+import Pricing from '../components/Pricing'
 import styles from './modules/Layout.module.css'
 
 export default function AppRouter() {
@@ -20,6 +21,7 @@ export default function AppRouter() {
           <Route path="/process" element={<Process />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

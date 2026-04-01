@@ -78,21 +78,19 @@ export default function Contact() {
                   <input type="text" id="company" name="company" placeholder="Your company name" />
                 </div>
                 <div className={styles.formGroup}>
-                  <label htmlFor="service">What are you interested in?</label>
+                  <label htmlFor="service">Which plan are you interested in?</label>
                   <select id="service" name="service">
-                    <option value="">Select a service...</option>
-                    <option>Website or Web App</option>
-                    <option>Warehouse Management System</option>
-                    <option>Manufacturing System</option>
-                    <option>Maintenance System</option>
-                    <option>Scheduling Board</option>
-                    <option>Sales Document System</option>
+                    <option value="">Select a plan...</option>
+                    <option>Essential (1–2 modules, £300–£350/mo) — £1,000 onboarding</option>
+                    <option>Professional (3–5 modules, £400–£500/mo) — £1,000 onboarding</option>
+                    <option>Advanced (6–7 modules, £550–£600/mo) — £1,000 onboarding</option>
+                    <option>Enterprise (12+ modules, custom quote) — custom onboarding</option>
                     <option>Not sure yet</option>
                   </select>
                 </div>
                 <div className={styles.formGroup}>
-                  <label htmlFor="message">Tell us about your project</label>
-                  <textarea id="message" name="message" placeholder="What are you trying to achieve? What's the main challenge?" required />
+                  <label htmlFor="message">What would you like built?</label>
+                  <textarea id="message" name="message" placeholder="Describe the modules or features you need — what should the system do and what problem does it solve?" required />
                 </div>
                 <button
                   type="submit"

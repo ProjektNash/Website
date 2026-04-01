@@ -8,7 +8,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroTag}>Based in the UK</div>
         <h1>Smarter systems.<br />Better <em>decisions</em>.</h1>
-        <p>We build intelligent systems and websites that help teams move faster, cut manual work, and get clarity on what matters.</p>
+        <p>We build systems that help teams move faster, cut manual work, and get clarity on what matters.</p>
         <div className={styles.heroActions}>
           <Link to="/contact" className={`${s.btn} ${s.btnPrimary}`}>Book a Consultation →</Link>
           <Link to="/solutions" className={`${s.btn} ${s.btnSecondary}`}>See our solutions</Link>
@@ -21,19 +21,17 @@ export default function Home() {
         <h2 className={s.sectionTitle}>Solutions built for your team</h2>
         <p className={s.sectionSubtitle}>From custom CRMs to analytics dashboards — tools that actually fit how you work.</p>
         <div className={s.grid3}>
-          <div className={s.card}><span className={s.cardIcon}>⚙️</span><h3>Custom Systems</h3><p>CRMs, internal portals, admin panels, and specialised apps that fit your workflow.</p></div>
-          <div className={s.card}><span className={s.cardIcon}>📊</span><h3>Analytics & KPIs</h3><p>Dashboards that give clarity: sales, operations, service performance in one place.</p></div>
-          <div className={s.card}><span className={s.cardIcon}>🌐</span><h3>Websites & Web Apps</h3><p>Professional, responsive websites. From landing pages to client portals.</p></div>
-          <div className={s.card}><span className={s.cardIcon}>🔗</span><h3>Integrations & Automation</h3><p>Connect tools, reduce manual work, and automate data flows securely.</p></div>
-          <div className={s.card}><span className={s.cardIcon}>🔍</span><h3>Discovery & Audits</h3><p>Short, focused engagements to map processes and identify improvements.</p></div>
-          <div className={s.card}><span className={s.cardIcon}>🧪</span><h3>Prototyping</h3><p>Validate ideas quickly with working prototypes and tight feedback loops.</p></div>
+          <div className={s.card}><span className={s.cardIcon}>⚙️</span><h3>Production & Operations Tracking</h3><p>Real-time job tracking, shift logs, and production dashboards — built around how your floor actually runs.</p></div>
+          <div className={s.card}><span className={s.cardIcon}>📦</span><h3>Inventory & Stock Management</h3><p>Custom stock control, goods-in/out tracking, and low-stock alerts without the complexity of a full ERP.</p></div>
+          <div className={s.card}><span className={s.cardIcon}>👥</span><h3>Workforce & Absence Management</h3><p>Absence planners, rota tools, and team management systems built for shift-based businesses.</p></div>
+          <div className={s.card}><span className={s.cardIcon}>🔧</span><h3>Maintenance & Asset Tracking</h3><p>Log faults, schedule maintenance, and track assets across your site — no more spreadsheets.</p></div>
+          <div className={s.card}><span className={s.cardIcon}>✅</span><h3>Safety & Compliance Tools</h3><p>Digital checklists, incident reporting, and audit trails that keep your team compliant and your records clean.</p></div>
+          <div className={s.card}><span className={s.cardIcon}>📊</span><h3>Reporting & KPI Dashboards</h3><p>Live dashboards pulling your operational data into one place — built for managers, not IT teams.</p></div>
         </div>
         <div style={{ marginTop: '40px' }}>
           <Link to="/solutions" className={`${s.btn} ${s.btnSecondary}`}>View all solutions →</Link>
         </div>
       </section>
-
-      <div className={s.divider} />
 
       <section className={s.section}>
         <div className={s.sectionLabel}>How we work</div>

@@ -18,6 +18,7 @@ export default function Navbar() {
           <li><NavLink to="/process" className={({ isActive }) => isActive ? styles.active : ''} onClick={() => setOpen(false)}>Process Improvement</NavLink></li>
           <li><NavLink to="/portfolio" className={({ isActive }) => isActive ? styles.active : ''} onClick={() => setOpen(false)}>Portfolio</NavLink></li>
           <li><NavLink to="/about" className={({ isActive }) => isActive ? styles.active : ''} onClick={() => setOpen(false)}>About</NavLink></li>
+          <li><NavLink to="/pricing" className={({ isActive }) => isActive ? styles.active : ''} onClick={() => setOpen(false)}>Pricing</NavLink></li>
           <li><NavLink to="/contact" className={styles.cta} onClick={() => setOpen(false)}>Book a Consultation</NavLink></li>
         </ul>
 
