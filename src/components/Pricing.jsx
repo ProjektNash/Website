@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom'
 import s from '../layout/modules/Page.module.css'
 import styles from './modules/Pricing.module.css'
 
-const PRICES = [0, 300, 350, 400, 450, 500, 550, 600]
+const priceFor = modules => 250 + modules * 50
+const onboardingFor = modules => {
+  if (modules <= 2) return 1000
+  if (modules <= 5) return 1500
+  if (modules <= 8) return 2000
+  if (modules <= 11) return 2500
+  return null
+}
+const hoursLabel = n => `${n} ${n === 1 ? 'hour' : 'hours'} of changes & tweaks per month`
 
 const SHARED_FEATURES = [
   'Unlimited users — no per-seat fees',
@@ -21,6 +29,8 @@ const PLANS = [
     modulesLabel: 'Up to 2 custom modules',
     minModules: 1,
     maxModules: 2,
+    monthlyHours: 2,
+    onboardingDisplay: '£1,000',
     popular: false,
   },
   {
@@ -29,21 +39,25 @@ const PLANS = [
     modulesLabel: 'Up to 5 custom modules',
     minModules: 3,
     maxModules: 5,
+    monthlyHours: 3,
+    onboardingDisplay: '£1,500',
     popular: true,
   },
   {
     name: 'Advanced',
-    range: '6–7 modules',
-    modulesLabel: 'Up to 7 custom modules',
+    range: '6–11 modules',
+    modulesLabel: 'Up to 11 custom modules',
     minModules: 6,
-    maxModules: 7,
+    maxModules: 11,
+    monthlyHours: 5,
+    onboardingDisplay: '£2,000 (6-8 modules) / £2,500 (9-11 modules)',
     popular: false,
-    advancedNote: true,
   },
   {
     name: 'Enterprise',
     range: '12+ modules',
     modulesLabel: '12+ custom modules',
+    onboardingDisplay: 'Quoted with project',
     popular: false,
     custom: true,
   },
@@ -51,7 +65,7 @@ const PLANS = [
 
 export default function Pricing() {
   const [modules, setModules] = useState(3)
-  const price = PRICES[modules]
+  const price = priceFor(modules)
 
   return (
     <>
@@ -59,7 +73,7 @@ export default function Pricing() {
         <h1>Pricing</h1>
       </div>
 
-      <section className={s.section} style={{ paddingTop: 0 }}>
+      <section className={s.section} style={{ paddingTop: 0, maxWidth: '1400px' }}>
 
         <div className={styles.sliderBox}>
           <div className={styles.sliderRow}>
@@ -68,23 +82,29 @@ export default function Pricing() {
               <input
                 type="range"
                 min={1}
-                max={7}
+                max={11}
                 value={modules}
                 onChange={e => setModules(Number(e.target.value))}
                 className={styles.slider}
               />
               <div className={styles.sliderTicks}>
-                {[1, 2, 3, 4, 5, 6, 7].map(n => (
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(n => (
                   <span key={n} className={n === modules ? styles.tickActive : ''}>{n}</span>
                 ))}
               </div>
             </div>
-            <span className={styles.sliderPrice}>£{price}<span>/mo</span></span>
+            <div className={styles.sliderPriceBlock}>
+              <span className={styles.sliderPrice}>£{price}<span>/mo</span></span>
+              <span className={styles.sliderOnboarding}>+ £{onboardingFor(modules).toLocaleString('en-GB')} onboarding</span>
+            </div>
           </div>
         </div>
 
         <div className={styles.onboarding}>
-          <strong>One-time onboarding fee: £1,000</strong> — covers setup and initial build. No surprises.
+          <strong>One-time onboarding: from £1,000</strong> — covers setup, scoping, and the full initial build, including all the modules in your plan. Onboarding scales with your plan: £1,000 for Essential, £1,500 for Professional, £2,000-£2,500 for Advanced.
+          <div style={{ marginTop: '6px', fontSize: '0.82rem', opacity: 0.75, fontWeight: 300 }}>
+            Spread your onboarding across 6 months at no extra cost. Your tier's module count is yours to use — build them all at signup, or save some to add later as your business grows. We'll help you plan ahead during your free consultation.
+          </div>
         </div>
 
         <div className={styles.plans}>
@@ -100,6 +120,9 @@ export default function Pricing() {
               {plan.custom ? (
                 <>
                   <div className={styles.planPriceCustom}>Custom quote</div>
+                  <div className={styles.onboardingLine}>
+                    Onboarding: <strong>{plan.onboardingDisplay}</strong>
+                  </div>
                   <p className={styles.enterpriseNote}>
                     Every large-scale deployment is different. We'll scope the project with you and provide a tailored monthly rate and build cost.
                   </p>
@@ -107,6 +130,10 @@ export default function Pricing() {
                     <li className={styles.featureHighlight}>
                       <span className={styles.check}>✓</span>
                       {plan.modulesLabel}
+                    </li>
+                    <li className={styles.featureHighlight}>
+                      <span className={styles.check}>✓</span>
+                      Custom monthly support hours
                     </li>
                     {SHARED_FEATURES.map(feature => (
                       <li key={feature}>
@@ -122,13 +149,20 @@ export default function Pricing() {
               ) : (
                 <>
                   <div className={styles.planPrice}>
-                    £{PRICES[plan.minModules]}–£{PRICES[plan.maxModules]}
+                    £{priceFor(plan.minModules)}–£{priceFor(plan.maxModules)}
                     <span>/mo</span>
+                  </div>
+                  <div className={styles.onboardingLine}>
+                    Onboarding: <strong>{plan.onboardingDisplay}</strong>
                   </div>
                   <ul className={styles.featureList}>
                     <li className={styles.featureHighlight}>
                       <span className={styles.check}>✓</span>
                       {plan.modulesLabel}
+                    </li>
+                    <li className={styles.featureHighlight}>
+                      <span className={styles.check}>✓</span>
+                      {hoursLabel(plan.monthlyHours)}
                     </li>
                     {SHARED_FEATURES.map(feature => (
                       <li key={feature}>
@@ -150,22 +184,41 @@ export default function Pricing() {
                       Get started →
                     </Link>
                   )}
-                  {plan.advancedNote && (
-                    <p className={styles.advancedNote}>
-                      Need 8–12 modules? Monthly stays capped at £600. Additional modules are quoted as a one-time build cost. Above 12 falls under Enterprise.
-                    </p>
-                  )}
                 </>
               )}
             </div>
           ))}
         </div>
 
+        <div className={styles.termNote}>
+          <strong>Minimum term:</strong> 3 months on Essential, 6 months on Professional, 12 months on Advanced. After your minimum term, your retainer rolls month-to-month — cancel anytime with 30 days' notice.
+        </div>
+
+        <div className={styles.hoursNote}>
+          <p><strong>What's included in your hours?</strong> Small tweaks, wording or content updates, layout adjustments, report customisations, and minor feature additions all count toward your monthly hours allowance.</p>
+          <p><strong>What's always free?</strong> Bug fixes, security updates, and hosting issues — if something we built isn't working as it should, that's on us to fix.</p>
+          <p><strong>What's quoted separately?</strong> Going beyond your plan's module count, and any third-party integrations.</p>
+        </div>
+
+        <div className={styles.exitOptions}>
+          <h3 className={styles.exitOptionsHeading}>No lock-in — leave whenever you want.</h3>
+          <p className={styles.exitOptionsIntro}>
+            Your monthly retainer is rolling — cancel anytime after your minimum term and your payments stop. You'll always get your data exported and handed back. The system itself (the code) stays with us, but if you want to take it with you, you can buy it out: £1,500 per module.
+          </p>
+          <p className={styles.exitOptionsIntro}>
+            Better still, every monthly retainer payment builds credit toward your buyout cost — 25% of each payment. So a £500/month retainer earns you £125/month of buyout credit. The longer you stay, the closer you get to owning it outright.
+          </p>
+          <div className={styles.exitOptionsList}>
+            <p><strong>Always yours:</strong> Your data — exportable anytime, regardless of plan.</p>
+            <p><strong>Included in a buyout:</strong> Full source code, database export, deployment guide, all design assets, and 30 days of post-handover support.</p>
+          </div>
+        </div>
+
       </section>
 
       <div className={s.ctaBanner}>
         <h2>Ready to get started?</h2>
-        <p>One-time £1,000 onboarding fee, then a simple monthly subscription with no hidden costs.</p>
+        <p>Onboarding from £1,000 (or 6 monthly payments), then a simple subscription with no hidden costs.</p>
         <Link to="/contact" className={`${s.btn} ${s.btnWhite}`}>Book a free consultation →</Link>
       </div>
     </>
