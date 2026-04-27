@@ -203,14 +203,13 @@ export default function Pricing() {
         <div className={styles.exitOptions}>
           <h3 className={styles.exitOptionsHeading}>No lock-in — leave whenever you want.</h3>
           <p className={styles.exitOptionsIntro}>
-            Your monthly retainer is rolling — cancel anytime after your minimum term and your payments stop. You'll always get your data exported and handed back. The system itself (the code) stays with us, but if you want to take it with you, you can buy it out: £1,500 per module.
+            Your monthly retainer is rolling — cancel anytime after your minimum term and your payments stop. You'll always get your data exported and handed back. The system itself (the code) stays with us.
           </p>
           <p className={styles.exitOptionsIntro}>
-            Better still, every monthly retainer payment builds credit toward your buyout cost — 25% of each payment. So a £500/month retainer earns you £125/month of buyout credit. The longer you stay, the closer you get to owning it outright.
+            <strong>Want to own the code outright?</strong> It's possible — talk to us about a long-term ownership arrangement, and we'll work out terms that suit your business.
           </p>
           <div className={styles.exitOptionsList}>
             <p><strong>Always yours:</strong> Your data — exportable anytime, regardless of plan.</p>
-            <p><strong>Included in a buyout:</strong> Full source code, database export, deployment guide, all design assets, and 30 days of post-handover support.</p>
           </div>
         </div>
 
