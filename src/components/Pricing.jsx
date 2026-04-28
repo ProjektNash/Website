@@ -191,26 +191,23 @@ export default function Pricing() {
         </div>
 
         <div className={styles.termNote}>
-          <strong>Minimum term:</strong> 3 months on Essential, 6 months on Professional, 12 months on Advanced. After your minimum term, your retainer rolls month-to-month — cancel anytime with 30 days' notice.
+          <strong>Minimum term:</strong> 3 months on Essential, 6 months on Professional, 12 months on Advanced. After that, your retainer rolls month-to-month. To cancel, give 30 days' notice — you can give notice during your minimum term, so your contract ends cleanly the moment the term completes.
         </div>
 
         <div className={styles.hoursNote}>
           <p><strong>What's included in your hours?</strong> Small tweaks, wording or content updates, layout adjustments, report customisations, and minor feature additions all count toward your monthly hours allowance.</p>
           <p><strong>What's always free?</strong> Bug fixes, security updates, and hosting issues — if something we built isn't working as it should, that's on us to fix.</p>
-          <p><strong>What's quoted separately?</strong> Going beyond your plan's module count, and any third-party integrations.</p>
+          <p><strong>What's quoted separately?</strong> Going beyond your plan's module count, third-party integrations, and high-volume usage. Standard hosting is included on every plan; if your usage grows beyond typical levels (large data volumes, lots of file uploads, very high traffic), your monthly rate may be adjusted to cover the extra infrastructure cost. We'll always show you the numbers and agree before any change.</p>
         </div>
 
         <div className={styles.exitOptions}>
-          <h3 className={styles.exitOptionsHeading}>No lock-in — leave whenever you want.</h3>
+          <h3 className={styles.exitOptionsHeading}>Flexible terms — short minimum, then month-to-month</h3>
           <p className={styles.exitOptionsIntro}>
-            Your monthly retainer is rolling — cancel anytime after your minimum term and your payments stop. You'll always get your data exported and handed back. The system itself (the code) stays with us.
+            Each plan has a short initial commitment (3 months on Essential, 6 months on Professional, 12 months on Advanced) so we can cover the build-out properly. After that, your retainer rolls month-to-month. To cancel, give us 30 days' notice — you can give notice during your minimum term, so your contract ends cleanly the moment the term completes. You'll always get your data exported and handed back. The system itself (the code) stays with us.
           </p>
           <p className={styles.exitOptionsIntro}>
             <strong>Want to own the code outright?</strong> It's possible — talk to us about a long-term ownership arrangement, and we'll work out terms that suit your business.
           </p>
-          <div className={styles.exitOptionsList}>
-            <p><strong>Always yours:</strong> Your data — exportable anytime, regardless of plan.</p>
-          </div>
         </div>
 
       </section>
