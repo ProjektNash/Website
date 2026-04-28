@@ -12,6 +12,7 @@ const onboardingFor = modules => {
   return null
 }
 const hoursLabel = n => `${n} ${n === 1 ? 'hour' : 'hours'} of changes & tweaks per month`
+const tierFor = modules => PLANS.find(p => !p.custom && modules >= p.minModules && modules <= p.maxModules)?.name
 
 const SHARED_FEATURES = [
   'Unlimited users — no per-seat fees',
@@ -77,7 +78,7 @@ export default function Pricing() {
 
         <div className={styles.sliderBox}>
           <div className={styles.sliderRow}>
-            <span className={styles.sliderLabel}>Modules: <strong>{modules}</strong></span>
+            <span className={styles.sliderLabel}>Modules: <strong>{modules}</strong> — <strong>{tierFor(modules)}</strong> tier</span>
             <div className={styles.sliderTrack}>
               <input
                 type="range"
@@ -111,7 +112,7 @@ export default function Pricing() {
           {PLANS.map(plan => (
             <div
               key={plan.name}
-              className={`${styles.planCard} ${plan.popular ? styles.planPopular : ''} ${plan.custom ? styles.planEnterprise : ''}`}
+              className={`${styles.planCard} ${plan.popular ? styles.planPopular : ''} ${plan.custom ? styles.planEnterprise : ''} ${tierFor(modules) === plan.name ? styles.planActive : ''}`}
             >
               {plan.popular && <div className={styles.popularBadge}>Most Popular</div>}
               <h3>{plan.name}</h3>
@@ -188,10 +189,6 @@ export default function Pricing() {
               )}
             </div>
           ))}
-        </div>
-
-        <div className={styles.termNote}>
-          <strong>Minimum term:</strong> 3 months on Essential, 6 months on Professional, 12 months on Advanced. After that, your retainer rolls month-to-month. To cancel, give 30 days' notice — you can give notice during your minimum term, so your contract ends cleanly the moment the term completes.
         </div>
 
         <div className={styles.hoursNote}>

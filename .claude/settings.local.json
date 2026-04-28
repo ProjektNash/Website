@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git --no-pager diff src/components/Pricing.jsx)"
+      "Bash(git --no-pager diff src/components/Pricing.jsx)",
+      "Bash(git --no-pager diff src/components/Pricing.jsx src/components/modules/Pricing.module.css)"
     ]
   }
 }

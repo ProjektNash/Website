@@ -374,6 +374,16 @@
   border-style: dashed;
 }
 
+.planActive {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 3px #17364D, 0 12px 32px rgba(23, 54, 77, 0.18);
+}
+
+.planActive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 3px #17364D, 0 16px 40px rgba(23, 54, 77, 0.24);
+}
+
 .planPriceCustom {
   font-family: var(--font-head);
   font-size: 1.4rem;
