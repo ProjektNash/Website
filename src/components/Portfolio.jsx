@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
+import { Factory, FileText, Package, Wrench, CalendarDays } from 'lucide-react'
 import s from '../layout/modules/Page.module.css'
 import styles from './modules/Portfolio.module.css'
 
 const projects = [
-  { id: 1, tag: 'Manufacturing', title: 'Manufacturing System', desc: 'End-to-end production tracking managing work orders, machine status, and output — giving the shop floor and management real-time visibility.', icon: '🏭', wide: true },
-  { id: 2, tag: 'Sales', title: 'Sales Document System', desc: 'Automated quote and proposal generation pulling live pricing and product data — cutting turnaround from hours to minutes.', icon: '📄', wide: false },
-  { id: 3, tag: 'Warehouse', title: 'Warehouse Management System', desc: 'Custom WMS handling stock intake, location tracking, pick & pack, and despatch — replacing spreadsheets and paper processes.', icon: '📦', wide: false },
-  { id: 4, tag: 'Maintenance', title: 'Maintenance System', desc: 'Planned and reactive maintenance management with asset registers, job scheduling, and engineer job cards — reducing downtime.', icon: '🔧', wide: true },
-  { id: 5, tag: 'Scheduling', title: 'Scheduling Board', desc: 'Visual drag-and-drop scheduling board managing staff, jobs, and resources across multiple sites — replacing whiteboards.', icon: '📅', wide: true },
+  { id: 1, tag: 'Manufacturing', title: 'Manufacturing System', desc: 'End-to-end production tracking managing work orders, machine status, and output — giving the shop floor and management real-time visibility.', icon: Factory, wide: true },
+  { id: 2, tag: 'Sales', title: 'Sales Document System', desc: 'Automated quote and proposal generation pulling live pricing and product data — cutting turnaround from hours to minutes.', icon: FileText, wide: false },
+  { id: 3, tag: 'Warehouse', title: 'Warehouse Management System', desc: 'Custom WMS handling stock intake, location tracking, pick & pack, and despatch — replacing spreadsheets and paper processes.', icon: Package, wide: false },
+  { id: 4, tag: 'Maintenance', title: 'Maintenance System', desc: 'Planned and reactive maintenance management with asset registers, job scheduling, and engineer job cards — reducing downtime.', icon: Wrench, wide: true },
+  { id: 5, tag: 'Scheduling', title: 'Scheduling Board', desc: 'Visual drag-and-drop scheduling board managing staff, jobs, and resources across multiple sites — replacing whiteboards.', icon: CalendarDays, wide: true },
 ]
 
 export default function Portfolio() {
@@ -23,7 +24,7 @@ export default function Portfolio() {
         <div className={styles.grid}>
           {projects.map(p => (
             <div key={p.id} className={`${styles.card} ${p.wide ? styles.wide : ''}`}>
-              <div className={styles.thumb}>{p.icon}</div>
+              <div className={styles.thumb}><p.icon size={48} strokeWidth={1.5} aria-hidden="true" /></div>
               <div className={styles.info}>
                 <span className={styles.tag}>{p.tag}</span>
                 <h3>{p.title}</h3>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Check } from 'lucide-react'
 import s from '../layout/modules/Page.module.css'
 import styles from './modules/Pricing.module.css'
 
@@ -51,7 +52,7 @@ const PLANS = [
     minModules: 6,
     maxModules: 11,
     monthlyHours: 5,
-    onboardingDisplay: '£1,000 (6–8 modules) / £1,250 (9–11 modules)',
+    onboardingDisplay: '£1,000–£1,250',
     popular: false,
   },
   {
@@ -64,23 +65,55 @@ const PLANS = [
   },
 ]
 
+const FAQ = [
+  {
+    q: 'What does onboarding cover?',
+    a: <>
+      <p>Setup, scoping, and the full initial build, including all the modules in your plan. It's £500 for Essential, £750 for Professional, and £1,000 (6–8 modules) or £1,250 (9–11 modules) for Advanced.</p>
+      <p>You can spread your onboarding across 6 months at no extra cost. Your tier's module count is yours to use — build them all at signup, or save some to add later as your business grows. We'll help you plan ahead during your free consultation.</p>
+    </>,
+  },
+  {
+    q: "What's included in my monthly hours?",
+    a: <p>Small tweaks, wording or content updates, layout adjustments, report customisations, and minor feature additions all count toward your monthly hours allowance.</p>,
+  },
+  {
+    q: "What's always free?",
+    a: <p>Bug fixes, security updates, and hosting issues — if something we built isn't working as it should, that's on us to fix.</p>,
+  },
+  {
+    q: "What's quoted separately?",
+    a: <p>Going beyond your plan's module count, third-party integrations, and high-volume usage. Standard hosting is included on every plan; if your usage grows beyond typical levels (large data volumes, lots of file uploads, very high traffic), your monthly rate may be adjusted to cover the extra infrastructure cost. We'll always show you the numbers and agree before any change.</p>,
+  },
+  {
+    q: 'Is there a minimum term, and how do I cancel?',
+    a: <p>Each plan has a short initial commitment — 1 month on Essential, 3 months on Professional, 6 months on Advanced — so we can cover the build-out properly. After that, your plan rolls month-to-month. To cancel, give us 30 days' notice; you can give notice during your minimum term, so your contract ends cleanly the moment the term completes. You'll always get your data exported and handed back. The system itself (the code) stays with us.</p>,
+  },
+  {
+    q: 'Can I own the code outright?',
+    a: <p>It's possible — talk to us about a long-term ownership arrangement, and we'll work out terms that suit your business.</p>,
+  },
+]
+
 export default function Pricing() {
   const [modules, setModules] = useState(3)
   const price = priceFor(modules)
 
   return (
     <>
-      <div className={s.pageHero} style={{ textAlign: 'center', marginBottom: '24px' }}>
-        <h1>Pricing</h1>
+      <div className={`${s.pageHero} ${styles.hero}`}>
+        <h1>Simple monthly pricing</h1>
+        <p>Pick how many modules you need. Every plan includes unlimited users, hosting and support.</p>
       </div>
 
-      <section className={s.section} style={{ paddingTop: 0, maxWidth: '1400px' }}>
+      <section className={s.section} style={{ paddingTop: 0 }}>
 
         <div className={styles.sliderBox}>
           <div className={styles.sliderRow}>
-            <span className={styles.sliderLabel}>Modules: <strong>{modules}</strong> — <strong>{tierFor(modules)}</strong> tier</span>
+            <label htmlFor="modules" className={styles.sliderLabel}>Modules: <strong>{modules}</strong> — <strong>{tierFor(modules)}</strong> tier</label>
             <div className={styles.sliderTrack}>
               <input
+                id="modules"
                 type="range"
                 min={1}
                 max={11}
@@ -88,7 +121,7 @@ export default function Pricing() {
                 onChange={e => setModules(Number(e.target.value))}
                 className={styles.slider}
               />
-              <div className={styles.sliderTicks}>
+              <div className={styles.sliderTicks} aria-hidden="true">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(n => (
                   <span key={n} className={n === modules ? styles.tickActive : ''}>{n}</span>
                 ))}
@@ -101,11 +134,13 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className={styles.onboarding}>
-          <strong>One-time onboarding: from £500</strong> — covers setup, scoping, and the full initial build, including all the modules in your plan. Onboarding scales with your plan: £500 for Essential, £750 for Professional, £1,000–£1,250 for Advanced.
-          <div style={{ marginTop: '6px', fontSize: '0.82rem', opacity: 0.75, fontWeight: 300 }}>
-            Spread your onboarding across 6 months at no extra cost. Your tier's module count is yours to use — build them all at signup, or save some to add later as your business grows. We'll help you plan ahead during your free consultation.
-          </div>
+        <div className={styles.includes}>
+          <span className={styles.includesTitle}>Every plan includes</span>
+          <ul>
+            {SHARED_FEATURES.map(feature => (
+              <li key={feature}><Check size={16} strokeWidth={2.5} aria-hidden="true" />{feature}</li>
+            ))}
+          </ul>
         </div>
 
         <div className={styles.plans}>
@@ -119,92 +154,40 @@ export default function Pricing() {
               <p className={styles.planRange}>{plan.range}</p>
 
               {plan.custom ? (
-                <>
-                  <div className={styles.planPriceCustom}>Custom quote</div>
-                  <div className={styles.onboardingLine}>
-                    Onboarding: <strong>{plan.onboardingDisplay}</strong>
-                  </div>
-                  <p className={styles.enterpriseNote}>
-                    Every large-scale deployment is different. We'll scope the project with you and provide a tailored monthly rate and build cost.
-                  </p>
-                  <ul className={styles.featureList}>
-                    <li className={styles.featureHighlight}>
-                      <span className={styles.check}>✓</span>
-                      {plan.modulesLabel}
-                    </li>
-                    <li className={styles.featureHighlight}>
-                      <span className={styles.check}>✓</span>
-                      Custom monthly support hours
-                    </li>
-                    {SHARED_FEATURES.map(feature => (
-                      <li key={feature}>
-                        <span className={styles.check}>✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to="/contact" className={`${s.btn} ${s.btnSecondary}`} style={{ width: '100%', justifyContent: 'center' }}>
-                    Request a quote →
-                  </Link>
-                </>
+                <div className={styles.planPriceCustom}>Custom quote</div>
               ) : (
-                <>
-                  <div className={styles.planPrice}>
-                    £{priceFor(plan.minModules)}–£{priceFor(plan.maxModules)}
-                    <span>/mo</span>
-                  </div>
-                  <div className={styles.onboardingLine}>
-                    Onboarding: <strong>{plan.onboardingDisplay}</strong>
-                  </div>
-                  <ul className={styles.featureList}>
-                    <li className={styles.featureHighlight}>
-                      <span className={styles.check}>✓</span>
-                      {plan.modulesLabel}
-                    </li>
-                    <li className={styles.featureHighlight}>
-                      <span className={styles.check}>✓</span>
-                      {hoursLabel(plan.monthlyHours)}
-                    </li>
-                    {SHARED_FEATURES.map(feature => (
-                      <li key={feature}>
-                        <span className={styles.check}>✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  {plan.popular ? (
-                    <Link to="/contact" className={styles.btnPopular}>
-                      Get started →
-                    </Link>
-                  ) : (
-                    <Link
-                      to="/contact"
-                      className={`${s.btn} ${s.btnSecondary}`}
-                      style={{ width: '100%', justifyContent: 'center' }}
-                    >
-                      Get started →
-                    </Link>
-                  )}
-                </>
+                <div className={styles.planPrice}>
+                  £{priceFor(plan.minModules)}–£{priceFor(plan.maxModules)}
+                  <span>/mo</span>
+                </div>
               )}
+              <div className={styles.onboardingLine}>
+                Onboarding: <strong>{plan.onboardingDisplay}</strong>
+              </div>
+
+              <ul className={styles.featureList}>
+                <li><Check size={16} strokeWidth={2.5} aria-hidden="true" />{plan.modulesLabel}</li>
+                <li><Check size={16} strokeWidth={2.5} aria-hidden="true" />{plan.custom ? 'Custom monthly support hours' : hoursLabel(plan.monthlyHours)}</li>
+              </ul>
+
+              <Link
+                to="/contact"
+                className={plan.popular ? styles.btnPopular : `${s.btn} ${s.btnSecondary} ${styles.btnPlan}`}
+              >
+                {plan.custom ? 'Request a quote →' : 'Get started →'}
+              </Link>
             </div>
           ))}
         </div>
 
-        <div className={styles.hoursNote}>
-          <p><strong>What's included in your hours?</strong> Small tweaks, wording or content updates, layout adjustments, report customisations, and minor feature additions all count toward your monthly hours allowance.</p>
-          <p><strong>What's always free?</strong> Bug fixes, security updates, and hosting issues — if something we built isn't working as it should, that's on us to fix.</p>
-          <p><strong>What's quoted separately?</strong> Going beyond your plan's module count, third-party integrations, and high-volume usage. Standard hosting is included on every plan; if your usage grows beyond typical levels (large data volumes, lots of file uploads, very high traffic), your monthly rate may be adjusted to cover the extra infrastructure cost. We'll always show you the numbers and agree before any change.</p>
-        </div>
-
-        <div className={styles.exitOptions}>
-          <h3 className={styles.exitOptionsHeading}>Flexible terms — short minimum, then month-to-month</h3>
-          <p className={styles.exitOptionsIntro}>
-            Each plan has a short initial commitment (1 month on Essential, 3 months on Professional, 6 months on Advanced) so we can cover the build-out properly. After that, your retainer rolls month-to-month. To cancel, give us 30 days' notice — you can give notice during your minimum term, so your contract ends cleanly the moment the term completes. You'll always get your data exported and handed back. The system itself (the code) stays with us.
-          </p>
-          <p className={styles.exitOptionsIntro}>
-            <strong>Want to own the code outright?</strong> It's possible — talk to us about a long-term ownership arrangement, and we'll work out terms that suit your business.
-          </p>
+        <div className={styles.faq}>
+          <h2 className={styles.faqTitle}>Common questions</h2>
+          {FAQ.map(item => (
+            <details key={item.q} className={styles.faqItem}>
+              <summary>{item.q}</summary>
+              <div className={styles.faqAnswer}>{item.a}</div>
+            </details>
+          ))}
         </div>
 
       </section>

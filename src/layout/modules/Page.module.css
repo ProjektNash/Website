@@ -2,8 +2,8 @@
 .pageHero {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 72px 32px 48px;
-  margin-bottom: 64px;
+  padding: 56px 32px 32px;
+  margin-bottom: 16px;
 }
 
 .pageHero h1 {
@@ -25,7 +25,7 @@
 .section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 72px 32px;
+  padding: 56px 32px;
 }
 
 .sectionLabel {
@@ -72,7 +72,17 @@
   border-color: #c8ccc8;
 }
 
-.cardIcon { font-size: 1.8rem; margin-bottom: 16px; display: block; }
+.cardIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
 
 .card h3 {
   font-family: var(--font-head);
@@ -88,7 +98,7 @@
 
 .ctaBanner {
   background: var(--accent);
-  padding: 72px 32px;
+  padding: 56px 32px;
   text-align: center;
 }
 
@@ -136,5 +146,8 @@
 
 @media (max-width: 640px) {
   .grid3, .grid2 { grid-template-columns: 1fr; }
-  .section { padding: 48px 24px; }
+  .section { padding: 40px 20px; }
+  .pageHero { padding: 40px 20px 24px; margin-bottom: 8px; }
+  .ctaBanner { padding: 48px 20px; }
+  .card { padding: 24px; }
 }
