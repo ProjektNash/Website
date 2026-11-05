@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
-
 :root {
   --bg: #f0f2f0;
   --surface: #ffffff;
   --text: #0d1f2d;
+  --text-muted: #56626b;
   --accent: #0e8797cc;
   --accent-dark: #0f6e56;
   --border: #e0e4e0;
