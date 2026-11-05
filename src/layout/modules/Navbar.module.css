@@ -23,24 +23,13 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-head);
-  font-weight: 800;
-  font-size: 1.2rem;
-  color: var(--text);
-  letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 
-.logoMark {
-  width: 32px; height: 32px;
-  background: var(--text);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent);
-  font-weight: 800;
-  font-size: 0.85rem;
+.logoImg {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .links {
@@ -92,6 +81,8 @@
 }
 
 @media (max-width: 640px) {
+  .inner { padding: 0 20px; }
+  .logoImg { height: 34px; }
   .links { display: none; }
   .burger { display: flex; }
   .links.open {
@@ -99,8 +90,8 @@
     flex-direction: column;
     position: fixed;
     top: 64px; left: 0; right: 0;
-    background: var(--nav-bg);
-    backdrop-filter: blur(12px);
+    background: var(--bg);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.06);
     padding: 16px 24px 24px;
     border-bottom: 1px solid var(--border);
     gap: 4px;

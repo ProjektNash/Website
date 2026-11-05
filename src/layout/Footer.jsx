@@ -23,13 +23,14 @@ export default function Footer() {
               <h4>Company</h4>
               <ul>
                 <li><Link to="/about">About</Link></li>
+                <li><Link to="/pricing">Pricing</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
               </ul>
             </div>
           </div>
         </div>
         <div className={styles.bottom}>
-          <p>© 2026 Projekt Nash. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ProjektNash. All rights reserved.</p>
           <a href="mailto:adrian@projektnash.co.uk" className={styles.email}>adrian@projektnash.co.uk</a>
         </div>
       </div>

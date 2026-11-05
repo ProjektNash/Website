@@ -9,9 +9,9 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.inner}>
-        <NavLink to="/">
-  <img src={logo} alt="ProjektNash" style={{ height: '300px', width: 'auto', mixBlendMode: 'multiply', marginTop: '40px', marginLeft: '-100px' }} />
-</NavLink>
+        <NavLink to="/" className={styles.logo} onClick={() => setOpen(false)}>
+          <img src={logo} alt="ProjektNash" className={styles.logoImg} />
+        </NavLink>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
           <li><NavLink to="/solutions" className={({ isActive }) => isActive ? styles.active : ''} onClick={() => setOpen(false)}>Solutions</NavLink></li>
@@ -22,7 +22,7 @@ export default function Navbar() {
           <li><NavLink to="/contact" className={styles.cta} onClick={() => setOpen(false)}>Book a Consultation</NavLink></li>
         </ul>
 
-        <button className={styles.burger} onClick={() => setOpen(!open)} aria-label="Menu">
+        <button className={styles.burger} onClick={() => setOpen(!open)} aria-label="Menu" aria-expanded={open}>
           <span></span><span></span><span></span>
         </button>
       </div>
