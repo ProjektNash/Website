@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import s from '../layout/modules/Page.module.css'
 import styles from './modules/Pricing.module.css'
 
-const priceFor = modules => 250 + modules * 50
+const priceFor = modules => 100 + modules * 50
 const onboardingFor = modules => {
-  if (modules <= 2) return 1000
-  if (modules <= 5) return 1500
-  if (modules <= 8) return 2000
-  if (modules <= 11) return 2500
+  if (modules <= 2) return 500
+  if (modules <= 5) return 750
+  if (modules <= 8) return 1000
+  if (modules <= 11) return 1250
   return null
 }
 const hoursLabel = n => `${n} ${n === 1 ? 'hour' : 'hours'} of changes & tweaks per month`
@@ -31,7 +31,7 @@ const PLANS = [
     minModules: 1,
     maxModules: 2,
     monthlyHours: 2,
-    onboardingDisplay: '£1,000',
+    onboardingDisplay: '£500',
     popular: false,
   },
   {
@@ -41,7 +41,7 @@ const PLANS = [
     minModules: 3,
     maxModules: 5,
     monthlyHours: 3,
-    onboardingDisplay: '£1,500',
+    onboardingDisplay: '£750',
     popular: true,
   },
   {
@@ -51,7 +51,7 @@ const PLANS = [
     minModules: 6,
     maxModules: 11,
     monthlyHours: 5,
-    onboardingDisplay: '£2,000 (6-8 modules) / £2,500 (9-11 modules)',
+    onboardingDisplay: '£1,000 (6–8 modules) / £1,250 (9–11 modules)',
     popular: false,
   },
   {
@@ -102,7 +102,7 @@ export default function Pricing() {
         </div>
 
         <div className={styles.onboarding}>
-          <strong>One-time onboarding: from £1,000</strong> — covers setup, scoping, and the full initial build, including all the modules in your plan. Onboarding scales with your plan: £1,000 for Essential, £1,500 for Professional, £2,000-£2,500 for Advanced.
+          <strong>One-time onboarding: from £500</strong> — covers setup, scoping, and the full initial build, including all the modules in your plan. Onboarding scales with your plan: £500 for Essential, £750 for Professional, £1,000–£1,250 for Advanced.
           <div style={{ marginTop: '6px', fontSize: '0.82rem', opacity: 0.75, fontWeight: 300 }}>
             Spread your onboarding across 6 months at no extra cost. Your tier's module count is yours to use — build them all at signup, or save some to add later as your business grows. We'll help you plan ahead during your free consultation.
           </div>
@@ -200,7 +200,7 @@ export default function Pricing() {
         <div className={styles.exitOptions}>
           <h3 className={styles.exitOptionsHeading}>Flexible terms — short minimum, then month-to-month</h3>
           <p className={styles.exitOptionsIntro}>
-            Each plan has a short initial commitment (3 months on Essential, 6 months on Professional, 12 months on Advanced) so we can cover the build-out properly. After that, your retainer rolls month-to-month. To cancel, give us 30 days' notice — you can give notice during your minimum term, so your contract ends cleanly the moment the term completes. You'll always get your data exported and handed back. The system itself (the code) stays with us.
+            Each plan has a short initial commitment (1 month on Essential, 3 months on Professional, 6 months on Advanced) so we can cover the build-out properly. After that, your retainer rolls month-to-month. To cancel, give us 30 days' notice — you can give notice during your minimum term, so your contract ends cleanly the moment the term completes. You'll always get your data exported and handed back. The system itself (the code) stays with us.
           </p>
           <p className={styles.exitOptionsIntro}>
             <strong>Want to own the code outright?</strong> It's possible — talk to us about a long-term ownership arrangement, and we'll work out terms that suit your business.
@@ -211,7 +211,7 @@ export default function Pricing() {
 
       <div className={s.ctaBanner}>
         <h2>Ready to get started?</h2>
-        <p>Onboarding from £1,000 (or 6 monthly payments), then a simple subscription with no hidden costs.</p>
+        <p>Onboarding from £500 (or 6 monthly payments), then a simple subscription with no hidden costs.</p>
         <Link to="/contact" className={`${s.btn} ${s.btnWhite}`}>Book a free consultation →</Link>
       </div>
     </>

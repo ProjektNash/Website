@@ -81,9 +81,9 @@ export default function Contact() {
                   <label htmlFor="service">Which plan are you interested in?</label>
                   <select id="service" name="service">
                     <option value="">Select a plan...</option>
-                    <option>Essential (1–2 modules, £300–£350/mo) — £1,000 onboarding</option>
-                    <option>Professional (3–5 modules, £400–£500/mo) — £1,000 onboarding</option>
-                    <option>Advanced (6–7 modules, £550–£600/mo) — £1,000 onboarding</option>
+                    <option>Essential (1–2 modules, £150–£200/mo) — £500 onboarding</option>
+                    <option>Professional (3–5 modules, £250–£350/mo) — £750 onboarding</option>
+                    <option>Advanced (6–11 modules, £400–£650/mo) — £1,000–£1,250 onboarding</option>
                     <option>Enterprise (12+ modules, custom quote) — custom onboarding</option>
                     <option>Not sure yet</option>
                   </select>
