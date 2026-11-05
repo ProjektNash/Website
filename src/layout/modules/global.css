@@ -5,6 +5,8 @@
   --text-muted: #56626b;
   --accent: #0e8797cc;
   --accent-dark: #0f6e56;
+  --accent-strong: #0e8797;
+  --accent-soft: rgba(14, 135, 151, 0.1);
   --border: #e0e4e0;
   --nav-bg: rgba(240, 242, 240, 0.92);
   --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);

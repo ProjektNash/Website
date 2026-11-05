@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Mail, MapPin, Clock, CircleCheck } from 'lucide-react'
 import s from '../layout/modules/Page.module.css'
 import styles from './modules/Contact.module.css'
 
@@ -45,9 +46,9 @@ export default function Contact() {
           <div className={styles.info}>
             <h2>Let's talk about your project</h2>
             <p>Whether you have a clear brief or just a problem to solve, I'm happy to have an initial conversation with no commitment.</p>
-            <div className={styles.detail}><span>📧</span><a href="mailto:adrian@projektnash.co.uk">adrian@projektnash.co.uk</a></div>
-            <div className={styles.detail}><span>📍</span><span>United Kingdom</span></div>
-            <div className={styles.detail}><span>⏱️</span><span>Response within 48 hours</span></div>
+            <div className={styles.detail}><Mail size={18} aria-hidden="true" /><a href="mailto:adrian@projektnash.co.uk">adrian@projektnash.co.uk</a></div>
+            <div className={styles.detail}><MapPin size={18} aria-hidden="true" /><span>United Kingdom</span></div>
+            <div className={styles.detail}><Clock size={18} aria-hidden="true" /><span>Response within 48 hours</span></div>
             <div className={styles.callout}>
               <strong>Free 30-minute discovery call</strong><br />
               No sales pitch. I'll ask about your business and current processes — and give you honest advice on what might help.
@@ -57,7 +58,7 @@ export default function Contact() {
           <div className={s.card}>
             {status === 'success' ? (
               <div className={styles.success}>
-                <div style={{ fontSize: '2rem', marginBottom: '12px' }}>✅</div>
+                <CircleCheck size={40} strokeWidth={1.75} className={styles.successIcon} aria-hidden="true" />
                 <h3>Message sent!</h3>
                 <p>We'll be in touch within 48 hours.</p>
               </div>

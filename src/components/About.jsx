@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Factory, Settings, MapPin } from 'lucide-react'
 import s from '../layout/modules/Page.module.css'
 import styles from './modules/About.module.css'
 
@@ -29,17 +30,17 @@ export default function About() {
 
           <div>
             <div className={s.card} style={{ marginBottom: '20px' }}>
-              <span className={s.cardIcon}>🏭</span>
+              <span className={s.cardIcon}><Factory size={22} strokeWidth={1.75} aria-hidden="true" /></span>
               <h3>Process improvement first</h3>
               <p>From the warehouse floor to the production office — eleven years of operational experience means I understand how to find where problems actually are, not just where they appear to be.</p>
             </div>
             <div className={s.card} style={{ marginBottom: '20px' }}>
-              <span className={s.cardIcon}>⚙️</span>
+              <span className={s.cardIcon}><Settings size={22} strokeWidth={1.75} aria-hidden="true" /></span>
               <h3>Built around your operation</h3>
               <p>Every system is built to fit the way you work — flexible enough to match your processes, not rigid enough to force you to change them.</p>
             </div>
             <div className={s.card}>
-              <span className={s.cardIcon}>📍</span>
+              <span className={s.cardIcon}><MapPin size={22} strokeWidth={1.75} aria-hidden="true" /></span>
               <h3>Based in the UK</h3>
               <p>UK-based, working primarily with UK businesses — same timezone, same context, no communication lag.</p>
             </div>

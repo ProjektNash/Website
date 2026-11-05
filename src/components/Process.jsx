@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Lightbulb, Clock, MessageSquare } from 'lucide-react'
 import s from '../layout/modules/Page.module.css'
 import styles from './modules/Process.module.css'
 
@@ -33,9 +34,9 @@ export default function Process() {
           </div>
 
           <div>
-            <div className={s.card} style={{ marginBottom: '20px' }}><span className={s.cardIcon}>💡</span><h3>Why process first?</h3><p>Building the wrong thing perfectly is still the wrong thing. Taking time upfront means the system we build actually fits.</p></div>
-            <div className={s.card} style={{ marginBottom: '20px' }}><span className={s.cardIcon}>⏱️</span><h3>Typical timelines</h3><p>Discovery & audit: 1–2 weeks. Small builds: 2–4 weeks. Larger systems: 6–12 weeks.</p></div>
-            <div className={s.card}><span className={s.cardIcon}>💬</span><h3>Communication</h3><p>Weekly updates as standard. Direct access to the person building your project — not an account manager.</p></div>
+            <div className={s.card} style={{ marginBottom: '20px' }}><span className={s.cardIcon}><Lightbulb size={22} strokeWidth={1.75} aria-hidden="true" /></span><h3>Why process first?</h3><p>Building the wrong thing perfectly is still the wrong thing. Taking time upfront means the system we build actually fits.</p></div>
+            <div className={s.card} style={{ marginBottom: '20px' }}><span className={s.cardIcon}><Clock size={22} strokeWidth={1.75} aria-hidden="true" /></span><h3>Typical timelines</h3><p>Discovery & audit: 1–2 weeks. Small builds: 2–4 weeks. Larger systems: 6–12 weeks.</p></div>
+            <div className={s.card}><span className={s.cardIcon}><MessageSquare size={22} strokeWidth={1.75} aria-hidden="true" /></span><h3>Communication</h3><p>Weekly updates as standard. Direct access to the person building your project — not an account manager.</p></div>
           </div>
         </div>
       </section>
