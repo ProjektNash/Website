@@ -1,7 +1,18 @@
 .footer {
-  background: var(--text);
-  color: rgba(255,255,255,0.7);
-  padding: 48px 32px 32px;
+  position: relative;
+  background:
+    radial-gradient(600px 300px at 90% 0%, var(--accent-glow), transparent 70%),
+    var(--deep);
+  color: rgba(255,255,255,0.75);
+  padding: 56px 32px 32px;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gradient);
 }
 
 .inner { max-width: 1200px; margin: 0 auto; }
@@ -18,46 +29,41 @@
 .logo {
   font-family: var(--font-head);
   font-weight: 800;
-  font-size: 1.2rem;
-  color: #fff;
+  font-size: 1.5rem;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
+  background: linear-gradient(120deg, #fff 30%, var(--c1) 60%, var(--c3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.tagline {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.45);
-  font-weight: 300;
-}
+.tagline { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
 
-.links { display: flex; gap: 48px; }
+.links { display: flex; gap: 56px; }
 
 .col h4 {
   font-family: var(--font-head);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: rgba(255,255,255,0.5);
+  color: var(--c1);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   margin-bottom: 16px;
 }
 
-.col ul {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+.col ul { display: flex; flex-direction: column; gap: 10px; }
 
 .col a {
-  color: rgba(255,255,255,0.6);
-  font-size: 0.9rem;
-  transition: color 0.2s;
+  color: rgba(255,255,255,0.75);
+  font-size: 0.92rem;
+  transition: color 0.2s, padding 0.2s;
 }
 
-.col a:hover { color: #fff; }
+.col a:hover { color: #fff; padding-left: 4px; }
 
 .bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.12);
   padding-top: 24px;
   display: flex;
   justify-content: space-between;
@@ -69,13 +75,19 @@
 .bottom p { font-size: 0.82rem; }
 
 .email {
-  color: var(--accent);
-  font-size: 0.82rem;
-  transition: opacity 0.2s;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  transition: background 0.2s;
 }
 
-.email:hover { opacity: 0.8; }
+.email:hover { background: rgba(255,255,255,0.16); }
 
 @media (max-width: 640px) {
-  .links { flex-direction: column; gap: 24px; }
+  .footer { padding: 48px 20px 28px; }
+  .links { gap: 40px; }
 }

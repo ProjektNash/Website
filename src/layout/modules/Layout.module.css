@@ -2,9 +2,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: clip;
 }
 
 .main {
   flex: 1;
-  padding-top: 64px;
+  padding-top: 68px;
 }

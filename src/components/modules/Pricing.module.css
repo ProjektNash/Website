@@ -7,7 +7,7 @@
 
 .sliderBox {
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border-strong);
   border-radius: var(--radius);
   padding: 24px 36px;
   margin-bottom: 20px;
@@ -23,7 +23,6 @@
 .sliderLabel {
   font-size: 0.9rem;
   color: var(--text-muted);
-  font-weight: 300;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -45,9 +44,13 @@
 
 .sliderPrice {
   font-family: var(--font-head);
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 800;
-  color: #17364D;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 2px;
   letter-spacing: -0.03em;
   line-height: 1;
   white-space: nowrap;
@@ -56,6 +59,7 @@
 .sliderPrice span {
   font-size: 0.9rem;
   font-weight: 400;
+  -webkit-text-fill-color: var(--text-muted);
   color: var(--text-muted);
   margin-left: 3px;
 }
@@ -99,7 +103,8 @@
   flex-wrap: wrap;
   padding: 16px 24px;
   margin-bottom: 40px;
-  background: var(--accent-soft);
+  background: var(--gradient-soft);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius);
 }
 
@@ -107,7 +112,7 @@
   font-family: var(--font-head);
   font-weight: 700;
   font-size: 0.95rem;
-  color: #17364D;
+  color: var(--text);
 }
 
 .includes ul {
@@ -153,20 +158,25 @@
 }
 
 .planPopular {
-  border-color: transparent;
-  outline: 2px solid var(--accent-strong);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    var(--gradient) border-box;
 }
 
-.planEnterprise { border-style: dashed; }
+.planEnterprise {
+  border: 2px dashed var(--border-strong);
+  background: var(--gradient-soft);
+}
 
 .planActive {
   transform: translateY(-3px);
-  box-shadow: 0 0 0 3px #17364D, 0 12px 32px rgba(23, 54, 77, 0.18);
+  box-shadow: 0 0 0 3px var(--accent), 0 18px 40px var(--accent-glow);
 }
 
 .planActive:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 0 3px #17364D, 0 16px 40px rgba(23, 54, 77, 0.24);
+  box-shadow: 0 0 0 3px var(--accent), 0 22px 48px var(--accent-glow);
 }
 
 .popularBadge {
@@ -174,8 +184,9 @@
   top: -13px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--accent-strong);
+  background: var(--gradient);
   color: #fff;
+  box-shadow: 0 6px 16px var(--accent-glow);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -189,7 +200,7 @@
   font-family: var(--font-head);
   font-size: 1.25rem;
   font-weight: 800;
-  color: #17364D;
+  color: var(--text);
   margin-bottom: 2px;
   letter-spacing: -0.02em;
 }
@@ -205,7 +216,7 @@
   font-family: var(--font-head);
   font-size: 1.6rem;
   font-weight: 800;
-  color: #17364D;
+  color: var(--text);
   letter-spacing: -0.03em;
   margin-bottom: 4px;
   line-height: 1.2;
@@ -225,7 +236,7 @@
 }
 
 .onboardingLine strong {
-  color: #17364D;
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -264,20 +275,20 @@
   align-items: center;
   justify-content: center;
   padding: 12px 24px;
-  border-radius: 10px;
+  border-radius: 999px;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  background: var(--accent-strong);
+  background: var(--gradient);
   color: #fff;
   width: 100%;
+  box-shadow: 0 8px 20px var(--accent-glow);
 }
 
 .btnPopular:hover {
-  background: #0b6f7c;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(14, 135, 151, 0.3);
+  box-shadow: 0 12px 28px var(--accent-glow);
 }
 
 /* ── FAQ ────────────────────────────────────────────────────────────── */
@@ -299,7 +310,8 @@
 .faqItem {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
   margin-bottom: 10px;
 }
 
@@ -325,6 +337,7 @@
   color: var(--accent-strong);
 }
 
+.faqItem[open] { border-color: var(--border-strong); box-shadow: var(--card-shadow); }
 .faqItem[open] summary::after { content: '−'; }
 
 .faqItem summary:focus-visible {
@@ -337,7 +350,6 @@
   padding: 0 20px 18px;
   font-size: 0.9rem;
   color: var(--text-muted);
-  font-weight: 300;
   line-height: 1.65;
 }
 

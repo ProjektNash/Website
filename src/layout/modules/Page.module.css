@@ -1,47 +1,68 @@
 /* Shared page styles */
 .pageHero {
+  position: relative;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 56px 32px 32px;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
+  padding: 72px 32px 40px;
 }
 
 .pageHero h1 {
   font-family: var(--font-head);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 16px;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin-bottom: 18px;
+  background: linear-gradient(120deg, var(--text) 0%, var(--text) 35%, var(--accent-strong) 70%, var(--c3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 4px;
 }
 
 .pageHero p {
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   color: var(--text-muted);
-  max-width: 520px;
-  font-weight: 300;
+  max-width: 560px;
   line-height: 1.7;
 }
 
 .section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 56px 32px;
+  padding: 64px 32px;
 }
 
 .sectionLabel {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 12px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.sectionLabel::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gradient);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .sectionTitle {
   font-family: var(--font-head);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -0.03em;
+  line-height: 1.15;
   margin-bottom: 16px;
 }
 
@@ -49,96 +70,160 @@
   font-size: 1rem;
   color: var(--text-muted);
   max-width: 540px;
-  font-weight: 300;
   line-height: 1.7;
   margin-bottom: 48px;
 }
 
-.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 
 .card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 32px;
   box-shadow: var(--card-shadow);
-  transition: all 0.25s;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  overflow: hidden;
+}
+
+/* gradient bar that slides in on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gradient);
+  transform: scaleX(0.18);
+  transform-origin: left;
+  transition: transform 0.35s ease;
 }
 
 .card:hover {
   box-shadow: var(--card-shadow-hover);
-  transform: translateY(-2px);
-  border-color: #c8ccc8;
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
 }
 
+.card:hover::before { transform: scaleX(1); }
+
 .cardIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--gradient);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 20px var(--accent-glow);
 }
 
 .card h3 {
   font-family: var(--font-head);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 700;
   margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
 
-.card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+.card p { font-size: 0.93rem; color: var(--text-muted); line-height: 1.65; }
 
 .divider { height: 1px; background: var(--border); max-width: 1200px; margin: 0 auto; }
 
+/* Big vibrant call-to-action block */
 .ctaBanner {
-  background: var(--accent);
-  padding: 56px 32px;
+  position: relative;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 24px auto 72px;
+  width: calc(100% - 64px);
+  border-radius: 28px;
+  background: var(--gradient);
+  padding: 64px 32px;
   text-align: center;
+  box-shadow: 0 24px 60px var(--accent-glow);
 }
 
+.ctaBanner::before,
+.ctaBanner::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.14);
+  pointer-events: none;
+}
+
+.ctaBanner::before { width: 340px; height: 340px; top: -170px; right: -80px; }
+.ctaBanner::after  { width: 240px; height: 240px; bottom: -140px; left: -60px; }
+
 .ctaBanner h2 {
+  position: relative;
   font-family: var(--font-head);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem);
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.03em;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .ctaBanner p {
-  color: rgba(255,255,255,0.85);
-  font-size: 1rem;
-  margin-bottom: 32px;
-  font-weight: 300;
+  position: relative;
+  color: rgba(255,255,255,0.92);
+  font-size: 1.05rem;
+  margin: 0 auto 32px;
+  max-width: 560px;
 }
+
+.ctaBanner .btn { position: relative; }
 
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
-  border-radius: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.97rem;
+  font-weight: 700;
   cursor: pointer;
   border: none;
-  transition: all 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background-position 0.4s, border-color 0.2s;
   text-decoration: none;
 }
 
-.btnPrimary { background: var(--text); color: #fff; }
-.btnPrimary:hover { background: #2d342d; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-.btnSecondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
-.btnSecondary:hover { border-color: var(--text); transform: translateY(-1px); }
-.btnWhite { background: #fff; color: var(--accent-dark); }
-.btnWhite:hover { background: #f0faf7; transform: translateY(-1px); }
+.btnPrimary {
+  background: var(--gradient);
+  background-size: 160% 100%;
+  color: #fff;
+  box-shadow: 0 8px 22px var(--accent-glow);
+}
+
+.btnPrimary:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px var(--accent-glow);
+}
+
+.btnPrimary:disabled { opacity: 0.7; cursor: wait; transform: none; }
+
+.btnSecondary {
+  background: var(--surface);
+  color: var(--accent-strong);
+  border: 2px solid var(--border-strong);
+}
+
+.btnSecondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+.btnWhite {
+  background: #fff;
+  color: var(--accent-dark);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.btnWhite:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 14px 32px rgba(0,0,0,0.18); }
 
 @media (max-width: 900px) {
   .grid3 { grid-template-columns: repeat(2, 1fr); }
@@ -146,8 +231,8 @@
 
 @media (max-width: 640px) {
   .grid3, .grid2 { grid-template-columns: 1fr; }
-  .section { padding: 40px 20px; }
-  .pageHero { padding: 40px 20px 24px; margin-bottom: 8px; }
-  .ctaBanner { padding: 48px 20px; }
+  .section { padding: 44px 20px; }
+  .pageHero { padding: 48px 20px 24px; margin-bottom: 8px; }
+  .ctaBanner { padding: 48px 22px; width: calc(100% - 32px); border-radius: 22px; margin-bottom: 48px; }
   .card { padding: 24px; }
 }

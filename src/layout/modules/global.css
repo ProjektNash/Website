@@ -1,31 +1,92 @@
+/* ─────────────────────────────────────────────────────────────────────
+   Theme tokens. Every colour on the site comes from here.
+   Default = vibrant teal/aqua. Add data-theme="pink" to <html> for pink.
+   ───────────────────────────────────────────────────────────────────── */
 :root {
-  --bg: #f0f2f0;
+  /* Brand */
+  --c1: #0ea5e9;            /* sky */
+  --c2: #06b6d4;            /* cyan */
+  --c3: #14b8a6;            /* teal */
+  --accent: #06b6d4;
+  --accent-strong: #0e7490;  /* readable on white */
+  --accent-dark: #155e75;
+  --accent-soft: rgba(6, 182, 212, 0.12);
+  --accent-glow: rgba(6, 182, 212, 0.35);
+  --gradient: linear-gradient(120deg, var(--c1) 0%, var(--c2) 45%, var(--c3) 100%);
+  --gradient-soft: linear-gradient(135deg, #e0f7ff 0%, #ccfbf1 100%);
+
+  /* Neutrals */
+  --bg: #f3fbfd;
+  --bg-tint-1: rgba(14, 165, 233, 0.18);
+  --bg-tint-2: rgba(20, 184, 166, 0.18);
   --surface: #ffffff;
-  --text: #0d1f2d;
-  --text-muted: #56626b;
-  --accent: #0e8797cc;
-  --accent-dark: #0f6e56;
-  --accent-strong: #0e8797;
-  --accent-soft: rgba(14, 135, 151, 0.1);
-  --border: #e0e4e0;
-  --nav-bg: rgba(240, 242, 240, 0.92);
-  --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
-  --card-shadow-hover: 0 8px 32px rgba(0,0,0,0.10);
-  --radius: 12px;
+  --text: #0b1b2b;
+  --text-muted: #4b5b6b;
+  --border: #d9eef3;
+  --border-strong: #a5e3ee;
+  --nav-bg: rgba(255, 255, 255, 0.78);
+  --deep: #062b3a;           /* footer / dark blocks */
+
+  --card-shadow: 0 1px 2px rgba(11, 27, 43, 0.04), 0 8px 24px rgba(6, 182, 212, 0.08);
+  --card-shadow-hover: 0 18px 44px rgba(6, 182, 212, 0.22);
+  --radius: 18px;
   --font-head: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 }
+
+:root[data-theme="pink"] {
+  --c1: #ff4d8d;
+  --c2: #ec4899;
+  --c3: #c026d3;
+  --accent: #ec4899;
+  --accent-strong: #be185d;
+  --accent-dark: #9d174d;
+  --accent-soft: rgba(236, 72, 153, 0.12);
+  --accent-glow: rgba(236, 72, 153, 0.35);
+  --gradient-soft: linear-gradient(135deg, #ffe4f1 0%, #fae8ff 100%);
+
+  --bg: #fff6fa;
+  --bg-tint-1: rgba(255, 77, 141, 0.18);
+  --bg-tint-2: rgba(192, 38, 211, 0.14);
+  --text: #2a0b1c;
+  --text-muted: #6b4b5b;
+  --border: #f8d9e7;
+  --border-strong: #f5a8c9;
+  --deep: #3a0626;
+
+  --card-shadow: 0 1px 2px rgba(42, 11, 28, 0.04), 0 8px 24px rgba(236, 72, 153, 0.08);
+  --card-shadow-hover: 0 18px 44px rgba(236, 72, 153, 0.22);
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  background: var(--bg);
+  background:
+    radial-gradient(900px 600px at 100% -10%, var(--bg-tint-1), transparent 60%),
+    radial-gradient(800px 600px at -10% 30%, var(--bg-tint-2), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
   color: var(--text);
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-a { text-decoration: none; }
+::selection { background: var(--accent); color: #fff; }
+
+a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
+
+/* Gradient text helper, used by headings */
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
