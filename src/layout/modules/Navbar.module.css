@@ -3,11 +3,20 @@
   top: 0; left: 0; right: 0;
   z-index: 100;
   background: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  height: 64px;
+  backdrop-filter: blur(16px) saturate(1.6);
+  -webkit-backdrop-filter: blur(16px) saturate(1.6);
+  height: 68px;
   display: flex;
   align-items: center;
+}
+
+/* thin vibrant line under the bar */
+.nav::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: var(--gradient);
 }
 
 .inner {
@@ -20,47 +29,45 @@
   justify-content: space-between;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
+.logo { display: flex; align-items: center; flex-shrink: 0; }
 
-.logoImg {
-  height: 40px;
-  width: auto;
-  display: block;
-}
+.logoImg { height: 40px; width: auto; display: block; }
 
-.links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
+.links { display: flex; align-items: center; gap: 4px; }
 
 .links a {
   color: var(--text-muted);
   font-size: 0.9rem;
   font-weight: 500;
-  padding: 6px 14px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
   transition: all 0.2s;
 }
 
-.links a:hover, .links a.active {
-  color: var(--text);
-  background: rgba(0,0,0,0.05);
+.links a:hover {
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+
+.links a.active {
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-weight: 600;
 }
 
 .cta {
-  background: var(--accent) !important;
+  background: var(--gradient) !important;
   color: #fff !important;
-  padding: 8px 20px !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  font-weight: 700 !important;
+  margin-left: 8px;
+  box-shadow: 0 6px 18px var(--accent-glow);
 }
 
-.cta:hover { background: var(--accent-dark) !important; }
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px var(--accent-glow);
+}
 
 .burger {
   display: none;
@@ -75,12 +82,12 @@
 .burger span {
   display: block;
   width: 24px; height: 2px;
-  background: var(--text);
+  background: var(--accent-strong);
   border-radius: 2px;
   transition: all 0.3s;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .inner { padding: 0 20px; }
   .logoImg { height: 34px; }
   .links { display: none; }
@@ -88,12 +95,14 @@
   .links.open {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     position: fixed;
-    top: 64px; left: 0; right: 0;
-    background: var(--bg);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-    padding: 16px 24px 24px;
-    border-bottom: 1px solid var(--border);
+    top: 68px; left: 0; right: 0;
+    background: var(--surface);
+    box-shadow: 0 18px 30px var(--accent-soft);
+    padding: 16px 20px 24px;
     gap: 4px;
   }
+  .links.open a { padding: 12px 16px; }
+  .cta { margin: 8px 0 0; text-align: center; }
 }

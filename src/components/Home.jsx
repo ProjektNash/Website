@@ -30,6 +30,10 @@ const STEPS = [
 export default function Home() {
   return (
     <>
+      <div className={styles.heroWrap}>
+      <span className={`${styles.blob} ${styles.blobA}`} aria-hidden="true" />
+      <span className={`${styles.blob} ${styles.blobB}`} aria-hidden="true" />
+      <span className={`${styles.blob} ${styles.blobC}`} aria-hidden="true" />
       <section className={styles.hero}>
         <div className={styles.heroText}>
           <div className={styles.heroTag}>Software for UK manufacturers</div>
@@ -53,6 +57,7 @@ export default function Home() {
           <Link to="/about" className={styles.founderLink}>Read Adrian's story →</Link>
         </aside>
       </section>
+      </div>
 
       <div className={styles.trust}>
         <ul className={styles.trustInner}>
